@@ -68,10 +68,26 @@ class LoginViewController: UIViewController, WKNavigationDelegate {
     }
     
     @objc func btnTapped() {
-        var vkLoginWebView = VKLoginWebView()
-        present(vkLoginWebView, animated: true)
+        do {
+            let data = try KeychainManager.fetch(service: "mobileup", account: "useless")
+            if let data = data {
+                print(String(decoding: data, as: UTF8.self))
+                if let navigationController = navigationController {
+                    let mainVC = MainViewController()
+                    print("ada")
+                    navigationController.pushViewController(mainVC, animated: true)
+                }
+                
+            } else {
+                let vkLoginWebView = VKLoginWebView()
+                present(vkLoginWebView, animated: true)
+            }
+        } catch {
+            print(error)
+        }
+        
     }
-
-
+    
+    
 }
 

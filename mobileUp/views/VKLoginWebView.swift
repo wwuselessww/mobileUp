@@ -52,7 +52,14 @@ class VKLoginWebView: UIViewController, WKNavigationDelegate {
         } else {
             token = "no token"
         }
-            print(token)
+        
+        do {
+            try KeychainManager.save(service: "mobileup", account: "useless", token: token.data(using: .utf8) ?? Data())
+        } catch {
+            print(error)
+        }
+        self.dismiss(animated: true)
         decisionHandler(.cancel)
+        
     }
 }

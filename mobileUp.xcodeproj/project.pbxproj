@@ -14,6 +14,8 @@
 		A2287C352C6B9EFD00DC9760 /* uicolor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C342C6B9EFD00DC9760 /* uicolor+extensions.swift */; };
 		A2287C382C6B9FAE00DC9760 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C372C6B9FAE00DC9760 /* Constants.swift */; };
 		A2287C3E2C6BA66900DC9760 /* VKLoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C3D2C6BA66900DC9760 /* VKLoginWebView.swift */; };
+		A2287C412C6BD5CC00DC9760 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C402C6BD5CC00DC9760 /* KeychainManager.swift */; };
+		A2287C432C6BDE8000DC9760 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C422C6BDE8000DC9760 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A2287C342C6B9EFD00DC9760 /* uicolor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uicolor+extensions.swift"; sourceTree = "<group>"; };
 		A2287C372C6B9FAE00DC9760 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A2287C3D2C6BA66900DC9760 /* VKLoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginWebView.swift; sourceTree = "<group>"; };
+		A2287C402C6BD5CC00DC9760 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		A2287C422C6BDE8000DC9760 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		A2287C1D2C6B930100DC9760 /* mobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				A2287C3F2C6BD5BF00DC9760 /* Managers */,
 				A2287C1E2C6B930100DC9760 /* AppDelegate.swift */,
 				A2287C202C6B930100DC9760 /* SceneDelegate.swift */,
 				A2287C332C6B9ECC00DC9760 /* Essentials */,
@@ -73,6 +78,7 @@
 			children = (
 				A2287C222C6B930100DC9760 /* LoginViewController.swift */,
 				A2287C3D2C6BA66900DC9760 /* VKLoginWebView.swift */,
+				A2287C422C6BDE8000DC9760 /* MainViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -84,6 +90,14 @@
 				A2287C372C6B9FAE00DC9760 /* Constants.swift */,
 			);
 			path = Essentials;
+			sourceTree = "<group>";
+		};
+		A2287C3F2C6BD5BF00DC9760 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A2287C402C6BD5CC00DC9760 /* KeychainManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,10 +171,12 @@
 			files = (
 				A2287C382C6B9FAE00DC9760 /* Constants.swift in Sources */,
 				A2287C232C6B930100DC9760 /* LoginViewController.swift in Sources */,
+				A2287C412C6BD5CC00DC9760 /* KeychainManager.swift in Sources */,
 				A2287C1F2C6B930100DC9760 /* AppDelegate.swift in Sources */,
 				A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */,
 				A2287C3E2C6BA66900DC9760 /* VKLoginWebView.swift in Sources */,
 				A2287C352C6B9EFD00DC9760 /* uicolor+extensions.swift in Sources */,
+				A2287C432C6BDE8000DC9760 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
