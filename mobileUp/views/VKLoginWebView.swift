@@ -9,7 +9,13 @@ import UIKit
 import WebKit
 import AuthenticationServices
 
+protocol VKLoginDelegate {
+    func didDismiss()
+}
+
 class VKLoginWebView: UIViewController, WKNavigationDelegate {
+
+    var vkDelegate: VKLoginDelegate?
     var webview: WKWebView!
     
     override func loadView() {
@@ -26,8 +32,6 @@ class VKLoginWebView: UIViewController, WKNavigationDelegate {
         urlComponent.scheme = "https"
         urlComponent.host = "oauth.vk.com"
         urlComponent.path = "/authorize"
-//        urlComponent.path = "/access_token"
-        
         urlComponent.queryItems = [
             URLQueryItem(name: "client_id", value: appID),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
@@ -60,7 +64,10 @@ class VKLoginWebView: UIViewController, WKNavigationDelegate {
         } catch {
             print(error)
         }
-        self.dismiss(animated: true)
+//        self.dismiss(animated: true)
+//        navigationController?.pushViewController(MainViewController(), animated: true)
+        vkDelegate?.didDismiss()
+        dismiss(animated: true)
         decisionHandler(.cancel)
         
     }

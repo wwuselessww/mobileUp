@@ -12,3 +12,8 @@ struct AppColors {
     static let btnLoginLbl = UIColor.dynamicColor(light: .white, dark: .black)
     static let lblColor = UIColor.label
 }
+
+struct KeychainCreds {
+    static let service = "mobileup"
+    static let account = "useless"
+}

@@ -8,8 +8,12 @@
 import UIKit
 import WebKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, VKLoginDelegate {
     
+    lazy var vkLoginWebView = VKLoginWebView()
+    lazy var mainVC = MainViewController()
+    
+    var vm = LoginViewModel()
     var lblTitle: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +23,7 @@ class LoginViewController: UIViewController {
         lbl.textColor = AppColors.lblColor
         return lbl
     }()
-    
+    var isLoginIn: Bool = false
     var btnLogin : UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +36,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            isLoginIn = await vm.checkToken()
+            checkIfLogin(loginState: isLoginIn)
+        }
         setupView()
         setupConstraints()
     }
@@ -60,7 +68,9 @@ class LoginViewController: UIViewController {
     
     @objc func btnTapped() {
         do {
-            let data = try KeychainManager.fetch(service: "mobileup", account: "useless")
+            let data = try KeychainManager.fetch(service: KeychainCreds.service, account: KeychainCreds.account)
+            
+            vkLoginWebView.vkDelegate = self
             if let data = data {
                 print(String(decoding: data, as: UTF8.self))
                 if let navigationController = navigationController {
@@ -68,17 +78,26 @@ class LoginViewController: UIViewController {
                     print("ada")
                     navigationController.pushViewController(mainVC, animated: true)
                 }
-                
             } else {
-                let vkLoginWebView = VKLoginWebView()
-                present(vkLoginWebView, animated: true)
+                navigationController?.present(vkLoginWebView, animated: true)
             }
         } catch {
             print(error)
         }
-        
+    }
+    func didDismiss() {
+        print("didDismiss")
+        if let navigationController = navigationController {
+            
+            navigationController.pushViewController(mainVC, animated: true)
+        }
     }
     
+    func checkIfLogin(loginState: Bool) {
+        if loginState {
+            navigationController?.pushViewController(mainVC, animated: true)
+        }
+    }
     
 }
 

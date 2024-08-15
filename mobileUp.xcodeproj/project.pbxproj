@@ -18,6 +18,7 @@
 		A2287C432C6BDE8000DC9760 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C422C6BDE8000DC9760 /* MainViewController.swift */; };
 		A2287C462C6BEC0C00DC9760 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */; };
 		A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C482C6BEEC400DC9760 /* InfoModel.swift */; };
+		A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23902C6E531A00D2270F /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A2287C422C6BDE8000DC9760 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A2287C482C6BEEC400DC9760 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		A2BF23902C6E531A00D2270F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */,
+				A2BF23902C6E531A00D2270F /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			files = (
 				A2287C382C6B9FAE00DC9760 /* Constants.swift in Sources */,
 				A2287C232C6B930100DC9760 /* LoginViewController.swift in Sources */,
+				A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */,
 				A2287C412C6BD5CC00DC9760 /* KeychainManager.swift in Sources */,
 				A2287C1F2C6B930100DC9760 /* AppDelegate.swift in Sources */,
 				A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */,

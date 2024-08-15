@@ -45,18 +45,18 @@ class KeychainManager {
         ]
         var result: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
-        
-//        guard status != errSecDuplicateItem else {
-//            throw KeychainErrors.duplicateEntry
-//        }
-//        
-//        guard status == errSecSuccess else {
-//            throw KeychainErrors.unknownError(status)
-//        }
-        
         print("fetched", status)
         return result as? Data
-        
-        
+    }
+    
+    static func delete(service: String, account: String) throws{
+        let query: [String: AnyObject] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: service as AnyObject,
+            kSecAttrAccount as String: account as AnyObject
+        ]
+
+        let status = SecItemDelete(query as CFDictionary)
+        print("deleted", status)
     }
 }
