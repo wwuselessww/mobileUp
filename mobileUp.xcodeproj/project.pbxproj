@@ -19,6 +19,8 @@
 		A2287C462C6BEC0C00DC9760 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */; };
 		A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C482C6BEEC400DC9760 /* InfoModel.swift */; };
 		A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23902C6E531A00D2270F /* LoginViewModel.swift */; };
+		A2BF23932C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23922C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift */; };
+		A2BF23952C6E902D00D2270F /* MainVC+VideoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23942C6E902D00D2270F /* MainVC+VideoCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A2287C482C6BEEC400DC9760 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		A2BF23902C6E531A00D2270F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A2BF23922C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+PhotoCollectionView.swift"; sourceTree = "<group>"; };
+		A2BF23942C6E902D00D2270F /* MainVC+VideoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+VideoCollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				A2287C222C6B930100DC9760 /* LoginViewController.swift */,
 				A2287C3D2C6BA66900DC9760 /* VKLoginWebView.swift */,
 				A2287C422C6BDE8000DC9760 /* MainViewController.swift */,
+				A2BF23922C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift */,
+				A2BF23942C6E902D00D2270F /* MainVC+VideoCollectionView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -195,11 +201,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2287C382C6B9FAE00DC9760 /* Constants.swift in Sources */,
+				A2BF23952C6E902D00D2270F /* MainVC+VideoCollectionView.swift in Sources */,
 				A2287C232C6B930100DC9760 /* LoginViewController.swift in Sources */,
 				A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */,
 				A2287C412C6BD5CC00DC9760 /* KeychainManager.swift in Sources */,
 				A2287C1F2C6B930100DC9760 /* AppDelegate.swift in Sources */,
 				A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */,
+				A2BF23932C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift in Sources */,
 				A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */,
 				A2287C3E2C6BA66900DC9760 /* VKLoginWebView.swift in Sources */,
 				A2287C352C6B9EFD00DC9760 /* uicolor+extensions.swift in Sources */,

@@ -8,13 +8,22 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    var photoCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        c.translatesAutoresizingMaskIntoConstraints = false
+        
+        return c
+    }()
+    
     var vm = MainViewModel()
     var segmentedControl = UISegmentedControl()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationControls()
         setupView()
-        setupConstraints()
+        setupCollectionView()
         Task {
             await vm.getFullInfo()
         }
@@ -22,12 +31,14 @@ class MainViewController: UIViewController {
     
     func setupView() {
         view.backgroundColor = AppColors.background
-        let newAction = UIAction(title: "Фото", handler: { _ in print("photo selected") })
-        let newAction2 = UIAction(title: "Видео", handler: { _ in print("video selected") })
-        segmentedControl = UISegmentedControl(frame: .zero, actions: [newAction, newAction2])
+        let segmentedItems = ["Фото", "Видео"]
+        segmentedControl = UISegmentedControl(items: segmentedItems)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
         view.addSubview(segmentedControl)
+        setupConstraints()
         
-
+        
     }
     
     func setupConstraints() {
@@ -39,11 +50,24 @@ class MainViewController: UIViewController {
             segmentedControl.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
+    @objc func segmentedControlChanged(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0 :
+            //photo
+            print("0")
+        case 1 :
+            //video
+            print("1")
+        default:
+            print("default")
+        }
+    }
     
     func setupNavigationControls() {
         navigationItem.title = "MobileUp Gallery"
         let btnLogout = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(btnLogoutTapped))
         navigationItem.rightBarButtonItem = btnLogout
+        navigationItem.hidesBackButton = true
     }
     
     @objc func btnLogoutTapped() {
@@ -54,6 +78,6 @@ class MainViewController: UIViewController {
         } catch {
             print(error)
         }
-
+        
     }
 }
