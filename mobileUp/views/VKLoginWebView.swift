@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import AuthenticationServices
 
 class VKLoginWebView: UIViewController, WKNavigationDelegate {
     var webview: WKWebView!
@@ -25,6 +26,7 @@ class VKLoginWebView: UIViewController, WKNavigationDelegate {
         urlComponent.scheme = "https"
         urlComponent.host = "oauth.vk.com"
         urlComponent.path = "/authorize"
+//        urlComponent.path = "/access_token"
         
         urlComponent.queryItems = [
             URLQueryItem(name: "client_id", value: appID),

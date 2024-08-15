@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class LoginViewController: UIViewController, WKNavigationDelegate {
+class LoginViewController: UIViewController {
     
     var lblTitle: UILabel = {
         let lbl = UILabel()
@@ -29,15 +29,6 @@ class LoginViewController: UIViewController, WKNavigationDelegate {
         btn.layer.cornerRadius = 12
         return btn
     }()
-    
-    var webView: WKWebView!
-    
-    override func loadView() {
-        super.loadView()
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
