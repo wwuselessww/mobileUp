@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
         setupCollectionView()
         Task {
             await vm.getToken()
-            await vm.getFullInfo()
+            await vm.checkToken()
             await vm.getAlbums()
             await vm.getAllPhotos()
 //            for i in vm.albumsArr {

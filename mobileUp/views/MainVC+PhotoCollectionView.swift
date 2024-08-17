@@ -48,6 +48,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (collectionView.frame.size.width - 30) / 2
         return CGSize(width: size, height: size)
@@ -76,9 +80,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         photoCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        
-    }
+    
     
     
     
