@@ -54,9 +54,7 @@ class MainViewModel: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: url)
             let res = try JSONDecoder().decode(AlbumsModel.self, from: data)
             for i in res.response.items {
-                print(i.id)
                 array.append("\(i.id)")
-                
             }
             self.albumsArr = array
         } catch {
@@ -64,7 +62,7 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    func getPhotosFromAlbumby(id albumId: String) async -> [PhotosItem] {
+    func getPhotosFromAlbum(id albumId: String) async -> [PhotosItem] {
         do {
             var urlComponents = URLComponents(string: "https://api.vk.com/method/photos.get")
             
@@ -78,7 +76,7 @@ class MainViewModel: ObservableObject {
             guard let url = urlComponents?.url else {fatalError("no url")}
             let (data, _) = try await URLSession.shared.data(from: url)
             let res = try JSONDecoder().decode(PhotosModel.self, from: data)
-            
+            print("size", res.response.items.count)
             return res.response.items
             
         } catch {
@@ -90,30 +88,37 @@ class MainViewModel: ObservableObject {
     func getAllPhotos() async {
         var tempArr: [String] = []
         for i in albumsArr {
-            var arrOfPhotos = await getPhotosFromAlbumby(id: i)
+            var arrOfPhotos = await getPhotosFromAlbum(id: i)
             for photo in arrOfPhotos {
                 tempArr.append(photo.orig_photo.url)
+                print("photo.orig_photo.url", photo.orig_photo.url)
+                print(" ")
             }
         }
         photoArr = tempArr
         
     }
     
-    func getPhoto(url: String) async -> UIImage{
-        guard let url = URL(string: url) else {fatalError("error in image")}
+    func getPhoto(urlString: String) async -> UIImage{
+        if let imageFromCache = cachedImages.object(forKey: urlString as NSString) {
+            return imageFromCache
+        }
+        guard let url = URL(string: urlString) else {fatalError("error in image")}
         var image: UIImage?
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             
-             image = UIImage(data: data)
+            image = UIImage(data: data)
         } catch {
             print("getPhoto", error)
+            return .placeholder
         }
-        return image!
+        if let resImage = image {
+            cachedImages.setObject(resImage, forKey: urlString as NSString)
+            return resImage
+        } else {
+            return .placeholder
+        }
+            
+        }
     }
-    
-    func prefetchPhotos() async {
-        
-    }
-    
-}

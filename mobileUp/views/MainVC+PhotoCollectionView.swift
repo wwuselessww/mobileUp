@@ -41,15 +41,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {fatalError("no cells")}
-        cell.backgroundImage.load(url: URL(string: vm.photoArr[indexPath.item])!)
-//        cell.backgroundImage.image = vm.photoImagesArr[indexPath.row]
-        cell.contentView.backgroundColor = .orange
         
+        cell.contentView.backgroundColor = .orange
+        Task {
+            cell.backgroundImage.image = await self.vm.getPhoto(urlString: self.vm.photoArr[indexPath.item])
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        
+        for i in indexPaths {
+            Task {
+                await vm.getPhoto(urlString: vm.photoArr[i.row])
+
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -42,6 +42,7 @@ class LoginViewController: UIViewController, VKLoginDelegate {
         }
         setupView()
         setupConstraints()
+        vkLoginWebView.vkDelegate = self
     }
     
     func setupView() {
@@ -70,7 +71,7 @@ class LoginViewController: UIViewController, VKLoginDelegate {
         do {
             let data = try KeychainManager.fetch(service: KeychainCreds.service, account: KeychainCreds.account)
             
-            vkLoginWebView.vkDelegate = self
+            
             if let data = data {
                 print(String(decoding: data, as: UTF8.self))
                 if let navigationController = navigationController {
