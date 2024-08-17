@@ -7,16 +7,20 @@
 
 import UIKit
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+    
+    
     
     private func registerCells() {
-        photoCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        photoCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
     }
     
     func setupCollectionView() {
         view.addSubview(photoCollectionView)
+
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
+        photoCollectionView.prefetchDataSource = self
         photoCollectionView.backgroundColor = .clear
         registerCells()
         setupCollectionViewConstraints()
@@ -32,12 +36,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return vm.photoArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? UICollectionViewCell else {fatalError("no cells")}
-//        cell.contentView.backgroundColor = [UIColor.blue, UIColor.red, UIColor.green].randomElement()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {fatalError("no cells")}
+        cell.backgroundImage.load(url: URL(string: vm.photoArr[indexPath.item])!)
+//        cell.backgroundImage.image = vm.photoImagesArr[indexPath.row]
         cell.contentView.backgroundColor = .orange
         
         return cell
@@ -47,6 +52,34 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let size = (collectionView.frame.size.width - 30) / 2
         return CGSize(width: size, height: size)
     }
+    
+    
+    func setPhotoLayout() {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(200))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
+        let section = NSCollectionLayoutSection(group: group)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        photoCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    func setVideoLayout() {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(200))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
+        let section = NSCollectionLayoutSection(group: group)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        photoCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+    }
+    
     
     
 }

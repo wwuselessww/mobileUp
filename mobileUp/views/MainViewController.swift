@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class MainViewController: UIViewController {
+    var cancellables = Set<AnyCancellable>()
+    var vm = MainViewModel()
     
     var photoCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -17,15 +20,22 @@ class MainViewController: UIViewController {
         return c
     }()
     
-    var vm = MainViewModel()
+    
     var segmentedControl = UISegmentedControl()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBinders()
         setupNavigationControls()
         setupView()
         setupCollectionView()
         Task {
+            await vm.getToken()
             await vm.getFullInfo()
+            await vm.getAlbums()
+            await vm.getAllPhotos()
+//            for i in vm.albumsArr {
+//                await vm.getPhotosFromAlbumby(id: i)
+//            }
         }
     }
     
@@ -34,6 +44,7 @@ class MainViewController: UIViewController {
         let segmentedItems = ["Фото", "Видео"]
         segmentedControl = UISegmentedControl(items: segmentedItems)
         segmentedControl.selectedSegmentIndex = 0
+        setPhotoLayout()
         segmentedControl.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
         view.addSubview(segmentedControl)
         setupConstraints()
@@ -55,14 +66,16 @@ class MainViewController: UIViewController {
         case 0 :
             //photo
             print("0")
+            setPhotoLayout()
         case 1 :
             //video
             print("1")
+            setVideoLayout()
         default:
             print("default")
         }
     }
-    
+
     func setupNavigationControls() {
         navigationItem.title = "MobileUp Gallery"
         let btnLogout = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(btnLogoutTapped))
