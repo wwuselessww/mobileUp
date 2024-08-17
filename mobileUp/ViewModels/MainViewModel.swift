@@ -13,7 +13,7 @@ class MainViewModel: ObservableObject {
     @Published var photoImagesArr: [UIImage] = []
     @Published var token = ""
     @Published var error = ""
-    private var cachedImages =  NSCache<NSString, UIImage>()
+    var cachedImages =  NSCache<NSString, UIImage>()
     func getToken() async {
         do {
             let data = try KeychainManager.fetch(service: "mobileup", account: "useless")

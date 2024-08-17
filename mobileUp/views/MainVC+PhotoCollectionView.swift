@@ -52,10 +52,20 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for i in indexPaths {
             Task {
-                await vm.getPhoto(urlString: vm.photoArr[i.row])
+                await vm.cachedImages.setObject( vm.getPhoto(urlString: vm.photoArr[i.row]), forKey: vm.photoArr[i.row] as NSString)
 
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        var fullPhotoVC = FullImageViewController()
+//        fullPhotoVC.title = 
+        Task {
+            fullPhotoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
+        }
+        navigationController?.pushViewController(fullPhotoVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
