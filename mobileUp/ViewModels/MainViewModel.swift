@@ -10,16 +10,19 @@ import UIKit
 class MainViewModel: ObservableObject {
     @Published var albumsArr: [String] = []
     @Published var photoArr: [String] = []
+    @Published var videoArr: [String] = []
     @Published var photoImagesArr: [UIImage] = []
     @Published var chosenCollection: ChosenCollection = .photo
     @Published var token = ""
     @Published var error = ""
+
     var cachedImages =  NSCache<NSString, UIImage>()
     func getToken() async {
         do {
             let data = try KeychainManager.fetch(service: "mobileup", account: "useless")
             if let data = data {
                 token = String(decoding: data, as: UTF8.self)
+                print(token)
             }
         } catch {
            print("no token", error)
@@ -77,7 +80,6 @@ class MainViewModel: ObservableObject {
             guard let url = urlComponents?.url else {fatalError("no url")}
             let (data, _) = try await URLSession.shared.data(from: url)
             let res = try JSONDecoder().decode(PhotosModel.self, from: data)
-            print("size", res.response.items.count)
             return res.response.items
             
         } catch {
@@ -92,8 +94,8 @@ class MainViewModel: ObservableObject {
             var arrOfPhotos = await getPhotosFromAlbum(id: i)
             for photo in arrOfPhotos {
                 tempArr.append(photo.orig_photo.url)
-                print("photo.orig_photo.url", photo.orig_photo.url)
-                print(" ")
+//                print("photo.orig_photo.url", photo.orig_photo.url)
+//                print(" ")
             }
         }
         photoArr = tempArr
@@ -122,4 +124,31 @@ class MainViewModel: ObservableObject {
         }
             
         }
+    
+    func getVideos() async {
+        var tempArr: [String] = []
+        do {
+            var urlComponents = URLComponents(string: "https://api.vk.com/method/video.get")
+            
+            urlComponents?.queryItems = [
+                URLQueryItem(name: "owner_id", value: "-128666765"),
+                URLQueryItem(name: "access_token", value: token),
+                URLQueryItem(name: "v", value: "5.199"),
+            ]
+            
+            guard let url = urlComponents?.url else {fatalError("no url")}
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let res = try JSONDecoder().decode(VideoModel.self, from: data)
+            
+            for item in res.response.items {
+                
+                tempArr.append(item.image.last?.url ?? "")
+            }
+            videoArr = tempArr
+            print(videoArr)
+        } catch {
+            print("getVideos",error)
+        }
+    }
+    
     }

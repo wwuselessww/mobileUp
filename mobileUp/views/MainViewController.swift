@@ -20,6 +20,15 @@ class MainViewController: UIViewController {
         return c
     }()
     
+    var videoCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        c.translatesAutoresizingMaskIntoConstraints = false
+        
+        return c
+    }()
+    
+    
     
     var segmentedControl = UISegmentedControl()
     override func viewDidLoad() {
@@ -32,10 +41,10 @@ class MainViewController: UIViewController {
             await vm.getToken()
             await vm.checkToken()
             await vm.getAlbums()
+            await vm.getVideos()
             await vm.getAllPhotos()
-//            for i in vm.albumsArr {
-//                await vm.getPhotosFromAlbumby(id: i)
-//            }
+            
+            
         }
     }
     
@@ -66,19 +75,21 @@ class MainViewController: UIViewController {
         case 0 :
             //photo
             print("0")
-            setPhotoLayout()
             vm.chosenCollection = .photo
+            videoCollectionView.isHidden = true
+            photoCollectionView.isHidden = false
         case 1 :
             //video
             print("1")
-            setVideoLayout()
             vm.chosenCollection = .video
+            videoCollectionView.isHidden = false
+            photoCollectionView.isHidden = true
         default:
             print("default")
             vm.chosenCollection = .photo
         }
     }
-
+    
     func setupNavigationControls() {
         navigationItem.title = "MobileUp Gallery"
         let btnLogout = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(btnLogoutTapped))

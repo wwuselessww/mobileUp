@@ -13,16 +13,28 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     private func registerCells() {
         photoCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
-        photoCollectionView.register(VideoCell.self, forCellWithReuseIdentifier: VideoCell.identifier)
+        videoCollectionView.register(VideoCell.self, forCellWithReuseIdentifier: VideoCell.identifier)
     }
     
     func setupCollectionView() {
         view.addSubview(photoCollectionView)
-
+        view.addSubview(videoCollectionView)
+        
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         photoCollectionView.prefetchDataSource = self
         photoCollectionView.backgroundColor = .clear
+        photoCollectionView.layer.zPosition = 0
+        setPhotoLayout()
+        
+        videoCollectionView.isHidden = true
+        videoCollectionView.delegate = self
+        videoCollectionView.dataSource = self
+        videoCollectionView.prefetchDataSource = self
+        videoCollectionView.backgroundColor = .clear
+        videoCollectionView.layer.zPosition = 1
+        setVideoLayout()
+        
         registerCells()
         setupCollectionViewConstraints()
     }
@@ -33,34 +45,48 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             photoCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             photoCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             photoCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            videoCollectionView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8),
+            videoCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            videoCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            videoCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vm.photoArr.count
+        if collectionView == photoCollectionView {
+            return vm.photoArr.count
+        }
+        return vm.videoArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if vm.chosenCollection == .photo {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {fatalError("no cells")}
+        if collectionView == photoCollectionView{
+            
+            guard let cell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {fatalError("no cells")}
             
             cell.contentView.backgroundColor = .orange
             Task {
                 cell.backgroundImage.image = await self.vm.getPhoto(urlString: self.vm.photoArr[indexPath.item])
             }
             return cell
+            
         } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCell.identifier, for: indexPath) as? VideoCell else {fatalError("no cells")}
+            guard let cell = videoCollectionView.dequeueReusableCell(withReuseIdentifier: VideoCell.identifier, for: indexPath) as? VideoCell else {fatalError("no cells")}
+            cell.contentView.backgroundColor = .green
+            Task {
+                cell.backgroundImageView.image = await self.vm.getPhoto(urlString: vm.videoArr[indexPath.item])
+            }
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for i in indexPaths {
-            Task {
-                await vm.cachedImages.setObject( vm.getPhoto(urlString: vm.photoArr[i.row]), forKey: vm.photoArr[i.row] as NSString)
-
-            }
+//            Task {
+//                await vm.cachedImages.setObject( vm.getPhoto(urlString: vm.photoArr[i.row]), forKey: vm.photoArr[i.row] as NSString)
+//
+//            }
         }
     }
     
@@ -94,12 +120,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func setVideoLayout() {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(200))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
         let section = NSCollectionLayoutSection(group: group)
         let layout = UICollectionViewCompositionalLayout(section: section)
-        photoCollectionView.setCollectionViewLayout(layout, animated: true)
+        videoCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
     

@@ -14,6 +14,7 @@ extension MainViewController {
            print("array binded")
             DispatchQueue.main.async {
                 self?.photoCollectionView.reloadData()
+                self?.videoCollectionView.reloadData()
             }
             
         }
@@ -31,9 +32,19 @@ extension MainViewController {
             print("photos")
             DispatchQueue.main.async {
                 self?.photoCollectionView.reloadData()
+                self?.videoCollectionView.reloadData()
             }
         }
         .store(in: &cancellables)
+        
+        vm.$videoArr.sink {[weak self] photos in
+            print("video")
+            DispatchQueue.main.async {
+                self?.videoCollectionView.reloadData()
+            }
+        }
+        .store(in: &cancellables)
+        
         
         vm.$token.sink {[weak self] token in
             print("token binded")
@@ -44,6 +55,7 @@ extension MainViewController {
             print("collection chosen")
             DispatchQueue.main.async {
                 self?.photoCollectionView.reloadData()
+                self?.videoCollectionView.reloadData()
             }
         }
         .store(in: &cancellables)

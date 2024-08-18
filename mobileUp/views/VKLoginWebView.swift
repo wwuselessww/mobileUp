@@ -36,7 +36,7 @@ class VKLoginWebView: UIViewController, WKNavigationDelegate {
             URLQueryItem(name: "client_id", value: appID),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "display", value: "mobile"),
-            URLQueryItem(name: "scope", value: "photos"),
+            URLQueryItem(name: "scope", value: "photos,video"),
             URLQueryItem(name: "response_type", value: "token"),
         ]
 
