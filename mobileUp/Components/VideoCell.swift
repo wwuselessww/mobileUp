@@ -23,10 +23,9 @@ class VideoCell: UICollectionViewCell {
     var lblTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.layer.masksToBounds = true
         l.textColor = .black
-        l.layer.cornerRadius = 12
-        l.text = "alkdnma;ldna;l"
+        l.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        l.numberOfLines = 3
         return l
     }()
     
@@ -34,7 +33,7 @@ class VideoCell: UICollectionViewCell {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let v = UIVisualEffectView(effect: blurEffect)
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.layer.cornerRadius = 16
+        v.layer.cornerRadius = 12
         v.clipsToBounds = true
         return v
     }()
@@ -73,6 +72,9 @@ class VideoCell: UICollectionViewCell {
             
             lblTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16 - innerHorrisontalPadding),
             lblTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16 - innerHorrisontalPadding),
+//            lblTitle.leadingAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            lblTitle.leadingAnchor.constraint(lessThanOrEqualTo: contentView.centerXAnchor),
+            lblTitle.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.centerXAnchor),
             
             blurView.topAnchor.constraint(equalTo: lblTitle.topAnchor, constant: -1 * innerVerticalPadding),
             blurView.bottomAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: innerVerticalPadding),

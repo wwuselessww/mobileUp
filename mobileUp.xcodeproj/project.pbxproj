@@ -134,7 +134,6 @@
 			children = (
 				A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */,
 				A2BF23902C6E531A00D2270F /* LoginViewModel.swift */,
-				A27168922C726D8C0066D07F /* VideoModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -145,6 +144,7 @@
 				A2287C482C6BEEC400DC9760 /* InfoModel.swift */,
 				A2E933BD2C70E0EE00AD6F6E /* PhotosModel.swift */,
 				A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */,
+				A27168922C726D8C0066D07F /* VideoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
