@@ -98,13 +98,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             Task {
                 fullPhotoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
             }
+            navigationItem.backButtonDisplayMode = .minimal
             navigationController?.pushViewController(fullPhotoVC, animated: true)
         } else {
             var fullVideoVC = VideoViewController()
             Task {
 //                fullVideoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
             }
+            navigationItem.backButtonDisplayMode = .minimal
             navigationController?.pushViewController(fullVideoVC, animated: true)
+            
         }
         
     }
