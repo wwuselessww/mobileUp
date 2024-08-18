@@ -17,3 +17,8 @@ struct KeychainCreds {
     static let service = "mobileup"
     static let account = "useless"
 }
+
+enum ChosenCollection {
+    case video
+    case photo
+}

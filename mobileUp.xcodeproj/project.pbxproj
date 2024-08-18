@@ -18,9 +18,9 @@
 		A2287C432C6BDE8000DC9760 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C422C6BDE8000DC9760 /* MainViewController.swift */; };
 		A2287C462C6BEC0C00DC9760 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */; };
 		A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C482C6BEEC400DC9760 /* InfoModel.swift */; };
+		A271688F2C725E700066D07F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271688E2C725E700066D07F /* VideoCell.swift */; };
 		A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23902C6E531A00D2270F /* LoginViewModel.swift */; };
 		A2BF23932C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23922C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift */; };
-		A2BF23952C6E902D00D2270F /* MainVC+VideoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23942C6E902D00D2270F /* MainVC+VideoCollectionView.swift */; };
 		A2E933BC2C70D42B00AD6F6E /* AlbumsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */; };
 		A2E933BE2C70E0EE00AD6F6E /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933BD2C70E0EE00AD6F6E /* PhotosModel.swift */; };
 		A2E933C02C70F34700AD6F6E /* MainVC+Bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933BF2C70F34700AD6F6E /* MainVC+Bindings.swift */; };
@@ -43,9 +43,9 @@
 		A2287C422C6BDE8000DC9760 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A2287C482C6BEEC400DC9760 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		A271688E2C725E700066D07F /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		A2BF23902C6E531A00D2270F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A2BF23922C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+PhotoCollectionView.swift"; sourceTree = "<group>"; };
-		A2BF23942C6E902D00D2270F /* MainVC+VideoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+VideoCollectionView.swift"; sourceTree = "<group>"; };
 		A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsModel.swift; sourceTree = "<group>"; };
 		A2E933BD2C70E0EE00AD6F6E /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		A2E933BF2C70F34700AD6F6E /* MainVC+Bindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+Bindings.swift"; sourceTree = "<group>"; };
@@ -150,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				A2BF23922C6E8C4800D2270F /* MainVC+PhotoCollectionView.swift */,
-				A2BF23942C6E902D00D2270F /* MainVC+VideoCollectionView.swift */,
 				A2E933BF2C70F34700AD6F6E /* MainVC+Bindings.swift */,
 				A2287C422C6BDE8000DC9760 /* MainViewController.swift */,
 			);
@@ -161,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				A2E933C52C710C3900AD6F6E /* PhotoCell.swift */,
+				A271688E2C725E700066D07F /* VideoCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -235,7 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2287C382C6B9FAE00DC9760 /* Constants.swift in Sources */,
-				A2BF23952C6E902D00D2270F /* MainVC+VideoCollectionView.swift in Sources */,
 				A2287C232C6B930100DC9760 /* LoginViewController.swift in Sources */,
 				A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */,
 				A2287C412C6BD5CC00DC9760 /* KeychainManager.swift in Sources */,
@@ -248,6 +247,7 @@
 				A2EA8BD42C713FD100EB76DB /* FullImageViewController.swift in Sources */,
 				A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */,
 				A2287C3E2C6BA66900DC9760 /* VKLoginWebView.swift in Sources */,
+				A271688F2C725E700066D07F /* VideoCell.swift in Sources */,
 				A2E933BE2C70E0EE00AD6F6E /* PhotosModel.swift in Sources */,
 				A2287C352C6B9EFD00DC9760 /* UIColor+Extensions.swift in Sources */,
 				A2287C432C6BDE8000DC9760 /* MainViewController.swift in Sources */,

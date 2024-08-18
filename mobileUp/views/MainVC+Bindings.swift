@@ -40,5 +40,13 @@ extension MainViewController {
         }
         .store(in: &cancellables)
         
+        vm.$chosenCollection.sink {[weak self] collection in
+            print("collection chosen")
+            DispatchQueue.main.async {
+                self?.photoCollectionView.reloadData()
+            }
+        }
+        .store(in: &cancellables)
+        
     }
 }

@@ -67,12 +67,15 @@ class MainViewController: UIViewController {
             //photo
             print("0")
             setPhotoLayout()
+            vm.chosenCollection = .photo
         case 1 :
             //video
             print("1")
             setVideoLayout()
+            vm.chosenCollection = .video
         default:
             print("default")
+            vm.chosenCollection = .photo
         }
     }
 

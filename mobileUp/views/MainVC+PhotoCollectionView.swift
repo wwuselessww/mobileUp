@@ -13,6 +13,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     private func registerCells() {
         photoCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
+        photoCollectionView.register(VideoCell.self, forCellWithReuseIdentifier: VideoCell.identifier)
     }
     
     func setupCollectionView() {
@@ -40,13 +41,18 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {fatalError("no cells")}
-        
-        cell.contentView.backgroundColor = .orange
-        Task {
-            cell.backgroundImage.image = await self.vm.getPhoto(urlString: self.vm.photoArr[indexPath.item])
+        if vm.chosenCollection == .photo {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {fatalError("no cells")}
+            
+            cell.contentView.backgroundColor = .orange
+            Task {
+                cell.backgroundImage.image = await self.vm.getPhoto(urlString: self.vm.photoArr[indexPath.item])
+            }
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCell.identifier, for: indexPath) as? VideoCell else {fatalError("no cells")}
+            return cell
         }
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {

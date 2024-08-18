@@ -11,6 +11,7 @@ class MainViewModel: ObservableObject {
     @Published var albumsArr: [String] = []
     @Published var photoArr: [String] = []
     @Published var photoImagesArr: [UIImage] = []
+    @Published var chosenCollection: ChosenCollection = .photo
     @Published var token = ""
     @Published var error = ""
     var cachedImages =  NSCache<NSString, UIImage>()
