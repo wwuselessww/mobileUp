@@ -67,7 +67,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.contentView.backgroundColor = .orange
             Task {
-                cell.backgroundImage.image = await self.vm.getPhoto(urlString: self.vm.photoArr[indexPath.item])
+                cell.backgroundImage.image = await self.vm.getPhoto(urlString: Array(self.vm.photoArr.values)[indexPath.item])
             }
             return cell
             
@@ -96,8 +96,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == photoCollectionView {
             var fullPhotoVC = FullImageViewController()
             Task {
-                fullPhotoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
+                fullPhotoVC.imageView.image = await vm.getPhoto(urlString: Array(vm.photoArr.values)[indexPath.item])
             }
+            fullPhotoVC.title = Array(vm.photoArr.keys)[indexPath.item]
             navigationItem.backButtonDisplayMode = .minimal
             navigationController?.pushViewController(fullPhotoVC, animated: true)
         } else {
@@ -105,6 +106,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             Task {
 //                fullVideoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
             }
+            
+            fullVideoVC.title = Array(vm.videoArr.keys)[indexPath.item]
+            print(Array(vm.videoArr.keys)[indexPath.item])
             navigationItem.backButtonDisplayMode = .minimal
             navigationController?.pushViewController(fullVideoVC, animated: true)
             

@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewModel: ObservableObject {
     @Published var albumsArr: [String] = []
-    @Published var photoArr: [String] = []
+    @Published var photoArr: [String: String] = [:]
     @Published var videoArr: [String : String] = [:]
     @Published var photoImagesArr: [UIImage] = []
     @Published var chosenCollection: ChosenCollection = .photo
@@ -89,11 +89,12 @@ class MainViewModel: ObservableObject {
     }
     
     func getAllPhotos() async {
-        var tempArr: [String] = []
+        var tempArr: [String: String] = [:]
         for i in albumsArr {
             var arrOfPhotos = await getPhotosFromAlbum(id: i)
             for photo in arrOfPhotos {
-                tempArr.append(photo.orig_photo.url)
+                tempArr["\(photo.date)"] = photo.orig_photo.url
+//                tempArr.append(photo.orig_photo.url)
 //                print("photo.orig_photo.url", photo.orig_photo.url)
 //                print(" ")
             }
