@@ -93,13 +93,20 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        var fullPhotoVC = FullImageViewController()
-//        fullPhotoVC.title = 
-        Task {
-            fullPhotoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
+        if collectionView == photoCollectionView {
+            var fullPhotoVC = FullImageViewController()
+            Task {
+                fullPhotoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
+            }
+            navigationController?.pushViewController(fullPhotoVC, animated: true)
+        } else {
+            var fullVideoVC = VideoViewController()
+            Task {
+//                fullVideoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
+            }
+            navigationController?.pushViewController(fullVideoVC, animated: true)
         }
-        navigationController?.pushViewController(fullPhotoVC, animated: true)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

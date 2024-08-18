@@ -20,6 +20,7 @@
 		A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C482C6BEEC400DC9760 /* InfoModel.swift */; };
 		A271688F2C725E700066D07F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271688E2C725E700066D07F /* VideoCell.swift */; };
 		A27168932C726D8C0066D07F /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27168922C726D8C0066D07F /* VideoModel.swift */; };
+		A27168952C728BF90066D07F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27168942C728BF90066D07F /* VideoViewController.swift */; };
 		A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23902C6E531A00D2270F /* LoginViewModel.swift */; };
 		A2BF23932C6E8C4800D2270F /* MainVC+CollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23922C6E8C4800D2270F /* MainVC+CollectionViews.swift */; };
 		A2E933BC2C70D42B00AD6F6E /* AlbumsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */; };
@@ -46,6 +47,7 @@
 		A2287C482C6BEEC400DC9760 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		A271688E2C725E700066D07F /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		A27168922C726D8C0066D07F /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		A27168942C728BF90066D07F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		A2BF23902C6E531A00D2270F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A2BF23922C6E8C4800D2270F /* MainVC+CollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+CollectionViews.swift"; sourceTree = "<group>"; };
 		A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsModel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				A2BF23922C6E8C4800D2270F /* MainVC+CollectionViews.swift */,
 				A2E933BF2C70F34700AD6F6E /* MainVC+Bindings.swift */,
 				A2287C422C6BDE8000DC9760 /* MainViewController.swift */,
+				A27168942C728BF90066D07F /* VideoViewController.swift */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				A2E933BC2C70D42B00AD6F6E /* AlbumsModel.swift in Sources */,
 				A2287C1F2C6B930100DC9760 /* AppDelegate.swift in Sources */,
 				A2E933C02C70F34700AD6F6E /* MainVC+Bindings.swift in Sources */,
+				A27168952C728BF90066D07F /* VideoViewController.swift in Sources */,
 				A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */,
 				A2BF23932C6E8C4800D2270F /* MainVC+CollectionViews.swift in Sources */,
 				A2E933C62C710C3900AD6F6E /* PhotoCell.swift in Sources */,
