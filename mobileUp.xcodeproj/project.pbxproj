@@ -29,6 +29,7 @@
 		A2E933C32C7103DF00AD6F6E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933C22C7103DF00AD6F6E /* UIImageView+Extensions.swift */; };
 		A2E933C62C710C3900AD6F6E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933C52C710C3900AD6F6E /* PhotoCell.swift */; };
 		A2EA8BD42C713FD100EB76DB /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8BD32C713FD100EB76DB /* FullImageViewController.swift */; };
+		A2FBC9E72C73687D00E361DF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBC9E62C73687D00E361DF /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		A2E933C22C7103DF00AD6F6E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		A2E933C52C710C3900AD6F6E /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		A2EA8BD32C713FD100EB76DB /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
+		A2FBC9E62C73687D00E361DF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				A2287C342C6B9EFD00DC9760 /* UIColor+Extensions.swift */,
 				A2287C372C6B9FAE00DC9760 /* Constants.swift */,
 				A2E933C22C7103DF00AD6F6E /* UIImageView+Extensions.swift */,
+				A2FBC9E62C73687D00E361DF /* String+Extensions.swift */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */,
 				A2BF23932C6E8C4800D2270F /* MainVC+CollectionViews.swift in Sources */,
 				A2E933C62C710C3900AD6F6E /* PhotoCell.swift in Sources */,
+				A2FBC9E72C73687D00E361DF /* String+Extensions.swift in Sources */,
 				A2EA8BD42C713FD100EB76DB /* FullImageViewController.swift in Sources */,
 				A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */,
 				A2287C3E2C6BA66900DC9760 /* VKLoginWebView.swift in Sources */,

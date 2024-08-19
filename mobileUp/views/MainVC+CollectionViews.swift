@@ -75,7 +75,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = videoCollectionView.dequeueReusableCell(withReuseIdentifier: VideoCell.identifier, for: indexPath) as? VideoCell else {fatalError("no cells")}
             cell.contentView.backgroundColor = .green
             Task {
-//                cell.backgroundImageView.image = await self.vm.getPhoto(urlString: vm.videoArr[indexPath.item])
                 cell.backgroundImageView.image = await self.vm.getPhoto(urlString: Array(vm.videoArr.values)[indexPath.item])
                 cell.lblTitle.text = Array(vm.videoArr.keys)[indexPath.item]
             }
@@ -98,7 +97,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             Task {
                 fullPhotoVC.imageView.image = await vm.getPhoto(urlString: Array(vm.photoArr.values)[indexPath.item])
             }
-            fullPhotoVC.title = Array(vm.photoArr.keys)[indexPath.item]
+            fullPhotoVC.title = Array(vm.photoArr.keys)[indexPath.item].convertToFormattedDate()
             navigationItem.backButtonDisplayMode = .minimal
             navigationController?.pushViewController(fullPhotoVC, animated: true)
         } else {
