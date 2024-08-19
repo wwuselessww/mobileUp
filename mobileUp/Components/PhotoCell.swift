@@ -13,6 +13,9 @@ class PhotoCell: UICollectionViewCell {
     var backgroundImage: UIImageView = {
         let v = UIImageView()
         v.translatesAutoresizingMaskIntoConstraints = false
+        v.contentMode = .scaleAspectFill
+        v.clipsToBounds = true
+        
         return v
     }()
     
