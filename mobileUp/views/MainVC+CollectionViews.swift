@@ -107,6 +107,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
             fullVideoVC.title = Array(vm.videoArr.keys)[indexPath.item]
+//            fullVideoVC.linkToVideoPlayer = "https://vk.com//video_ext.php?oid=-128666765&id=456239094&hash=6e5a7784c8852dfe&__ref=vk.api&api_hash=17240042454c776fa1516cebe1f1_GUYDKMRVGAZTINI"
             print(Array(vm.videoArr.keys)[indexPath.item])
             navigationItem.backButtonDisplayMode = .minimal
             navigationController?.pushViewController(fullVideoVC, animated: true)

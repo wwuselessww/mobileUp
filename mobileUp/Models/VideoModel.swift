@@ -28,7 +28,6 @@ struct VideoItem: Codable {
     let first_frame: [FirstFrame]?
     let width, height: Int?
     let id, owner_id: Int
-//    let ov_id: String?
     let title: String
     let player: String
     let added: Int
