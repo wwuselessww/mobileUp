@@ -11,14 +11,25 @@
 		A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C202C6B930100DC9760 /* SceneDelegate.swift */; };
 		A2287C232C6B930100DC9760 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C222C6B930100DC9760 /* LoginViewController.swift */; };
 		A2287C282C6B930300DC9760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2287C272C6B930300DC9760 /* Assets.xcassets */; };
-		A2287C352C6B9EFD00DC9760 /* uicolor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C342C6B9EFD00DC9760 /* uicolor+extensions.swift */; };
+		A2287C352C6B9EFD00DC9760 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C342C6B9EFD00DC9760 /* UIColor+Extensions.swift */; };
 		A2287C382C6B9FAE00DC9760 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C372C6B9FAE00DC9760 /* Constants.swift */; };
 		A2287C3E2C6BA66900DC9760 /* VKLoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C3D2C6BA66900DC9760 /* VKLoginWebView.swift */; };
 		A2287C412C6BD5CC00DC9760 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C402C6BD5CC00DC9760 /* KeychainManager.swift */; };
 		A2287C432C6BDE8000DC9760 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C422C6BDE8000DC9760 /* MainViewController.swift */; };
 		A2287C462C6BEC0C00DC9760 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */; };
 		A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C482C6BEEC400DC9760 /* InfoModel.swift */; };
+		A271688F2C725E700066D07F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271688E2C725E700066D07F /* VideoCell.swift */; };
+		A27168932C726D8C0066D07F /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27168922C726D8C0066D07F /* VideoModel.swift */; };
+		A27168952C728BF90066D07F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27168942C728BF90066D07F /* VideoViewController.swift */; };
 		A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23902C6E531A00D2270F /* LoginViewModel.swift */; };
+		A2BF23932C6E8C4800D2270F /* MainVC+CollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF23922C6E8C4800D2270F /* MainVC+CollectionViews.swift */; };
+		A2E933BC2C70D42B00AD6F6E /* AlbumsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */; };
+		A2E933BE2C70E0EE00AD6F6E /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933BD2C70E0EE00AD6F6E /* PhotosModel.swift */; };
+		A2E933C02C70F34700AD6F6E /* MainVC+Bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933BF2C70F34700AD6F6E /* MainVC+Bindings.swift */; };
+		A2E933C32C7103DF00AD6F6E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933C22C7103DF00AD6F6E /* UIImageView+Extensions.swift */; };
+		A2E933C62C710C3900AD6F6E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E933C52C710C3900AD6F6E /* PhotoCell.swift */; };
+		A2EA8BD42C713FD100EB76DB /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8BD32C713FD100EB76DB /* FullPhotoViewController.swift */; };
+		A2FBC9E72C73687D00E361DF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBC9E62C73687D00E361DF /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,14 +39,25 @@
 		A2287C222C6B930100DC9760 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A2287C272C6B930300DC9760 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2287C2C2C6B930300DC9760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2287C342C6B9EFD00DC9760 /* uicolor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uicolor+extensions.swift"; sourceTree = "<group>"; };
+		A2287C342C6B9EFD00DC9760 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		A2287C372C6B9FAE00DC9760 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A2287C3D2C6BA66900DC9760 /* VKLoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginWebView.swift; sourceTree = "<group>"; };
 		A2287C402C6BD5CC00DC9760 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		A2287C422C6BDE8000DC9760 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A2287C482C6BEEC400DC9760 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		A271688E2C725E700066D07F /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		A27168922C726D8C0066D07F /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		A27168942C728BF90066D07F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		A2BF23902C6E531A00D2270F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A2BF23922C6E8C4800D2270F /* MainVC+CollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+CollectionViews.swift"; sourceTree = "<group>"; };
+		A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsModel.swift; sourceTree = "<group>"; };
+		A2E933BD2C70E0EE00AD6F6E /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
+		A2E933BF2C70F34700AD6F6E /* MainVC+Bindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+Bindings.swift"; sourceTree = "<group>"; };
+		A2E933C22C7103DF00AD6F6E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		A2E933C52C710C3900AD6F6E /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		A2EA8BD32C713FD100EB76DB /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
+		A2FBC9E62C73687D00E361DF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +90,7 @@
 		A2287C1D2C6B930100DC9760 /* mobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				A2E933C42C710C2400AD6F6E /* Components */,
 				A2287C3F2C6BD5BF00DC9760 /* Managers */,
 				A2287C1E2C6B930100DC9760 /* AppDelegate.swift */,
 				A2287C202C6B930100DC9760 /* SceneDelegate.swift */,
@@ -86,7 +109,8 @@
 			children = (
 				A2287C222C6B930100DC9760 /* LoginViewController.swift */,
 				A2287C3D2C6BA66900DC9760 /* VKLoginWebView.swift */,
-				A2287C422C6BDE8000DC9760 /* MainViewController.swift */,
+				A2E933C12C70F34C00AD6F6E /* MainVC */,
+				A2EA8BD32C713FD100EB76DB /* FullPhotoViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -94,8 +118,10 @@
 		A2287C332C6B9ECC00DC9760 /* Essentials */ = {
 			isa = PBXGroup;
 			children = (
-				A2287C342C6B9EFD00DC9760 /* uicolor+extensions.swift */,
+				A2287C342C6B9EFD00DC9760 /* UIColor+Extensions.swift */,
 				A2287C372C6B9FAE00DC9760 /* Constants.swift */,
+				A2E933C22C7103DF00AD6F6E /* UIImageView+Extensions.swift */,
+				A2FBC9E62C73687D00E361DF /* String+Extensions.swift */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -121,8 +147,31 @@
 			isa = PBXGroup;
 			children = (
 				A2287C482C6BEEC400DC9760 /* InfoModel.swift */,
+				A2E933BD2C70E0EE00AD6F6E /* PhotosModel.swift */,
+				A2E933BB2C70D42B00AD6F6E /* AlbumsModel.swift */,
+				A27168922C726D8C0066D07F /* VideoModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A2E933C12C70F34C00AD6F6E /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				A2BF23922C6E8C4800D2270F /* MainVC+CollectionViews.swift */,
+				A2E933BF2C70F34700AD6F6E /* MainVC+Bindings.swift */,
+				A2287C422C6BDE8000DC9760 /* MainViewController.swift */,
+				A27168942C728BF90066D07F /* VideoViewController.swift */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+		A2E933C42C710C2400AD6F6E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A2E933C52C710C3900AD6F6E /* PhotoCell.swift */,
+				A271688E2C725E700066D07F /* VideoCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,13 +246,24 @@
 				A2287C382C6B9FAE00DC9760 /* Constants.swift in Sources */,
 				A2287C232C6B930100DC9760 /* LoginViewController.swift in Sources */,
 				A2BF23912C6E531A00D2270F /* LoginViewModel.swift in Sources */,
+				A27168932C726D8C0066D07F /* VideoModel.swift in Sources */,
 				A2287C412C6BD5CC00DC9760 /* KeychainManager.swift in Sources */,
+				A2E933BC2C70D42B00AD6F6E /* AlbumsModel.swift in Sources */,
 				A2287C1F2C6B930100DC9760 /* AppDelegate.swift in Sources */,
+				A2E933C02C70F34700AD6F6E /* MainVC+Bindings.swift in Sources */,
+				A27168952C728BF90066D07F /* VideoViewController.swift in Sources */,
 				A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */,
+				A2BF23932C6E8C4800D2270F /* MainVC+CollectionViews.swift in Sources */,
+				A2E933C62C710C3900AD6F6E /* PhotoCell.swift in Sources */,
+				A2FBC9E72C73687D00E361DF /* String+Extensions.swift in Sources */,
+				A2EA8BD42C713FD100EB76DB /* FullPhotoViewController.swift in Sources */,
 				A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */,
 				A2287C3E2C6BA66900DC9760 /* VKLoginWebView.swift in Sources */,
-				A2287C352C6B9EFD00DC9760 /* uicolor+extensions.swift in Sources */,
+				A271688F2C725E700066D07F /* VideoCell.swift in Sources */,
+				A2E933BE2C70E0EE00AD6F6E /* PhotosModel.swift in Sources */,
+				A2287C352C6B9EFD00DC9760 /* UIColor+Extensions.swift in Sources */,
 				A2287C432C6BDE8000DC9760 /* MainViewController.swift in Sources */,
+				A2E933C32C7103DF00AD6F6E /* UIImageView+Extensions.swift in Sources */,
 				A2287C462C6BEC0C00DC9760 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

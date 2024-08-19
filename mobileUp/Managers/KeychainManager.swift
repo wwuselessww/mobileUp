@@ -8,7 +8,6 @@
 import Foundation
 
 class KeychainManager {
-    
     enum KeychainErrors: Error {
         case duplicateEntry
         case unknownError(OSStatus)
@@ -22,7 +21,6 @@ class KeychainManager {
             kSecValueData as String: token as AnyObject,
         ]
         let status = SecItemAdd(query as CFDictionary, nil)
-        
         guard status != errSecDuplicateItem else {
             throw KeychainErrors.duplicateEntry
         }

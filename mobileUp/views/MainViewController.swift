@@ -6,28 +6,59 @@
 //
 
 import UIKit
+import Combine
 
 class MainViewController: UIViewController {
+    var cancellables = Set<AnyCancellable>()
     var vm = MainViewModel()
+    
+    var photoCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        c.translatesAutoresizingMaskIntoConstraints = false
+        
+        return c
+    }()
+    
+    var videoCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        c.translatesAutoresizingMaskIntoConstraints = false
+        
+        return c
+    }()
+    
+    
+    
     var segmentedControl = UISegmentedControl()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBinders()
         setupNavigationControls()
         setupView()
-        setupConstraints()
+        setupCollectionView()
         Task {
-            await vm.getFullInfo()
+            await vm.getToken()
+            await vm.checkToken()
+            await vm.getAlbums()
+            await vm.getVideos()
+            await vm.getAllPhotos()
+            
+            
         }
     }
     
     func setupView() {
         view.backgroundColor = AppColors.background
-        let newAction = UIAction(title: "Фото", handler: { _ in print("photo selected") })
-        let newAction2 = UIAction(title: "Видео", handler: { _ in print("video selected") })
-        segmentedControl = UISegmentedControl(frame: .zero, actions: [newAction, newAction2])
+        let segmentedItems = ["Фото", "Видео"]
+        segmentedControl = UISegmentedControl(items: segmentedItems)
+        segmentedControl.selectedSegmentIndex = 0
+        setPhotoLayout()
+        segmentedControl.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
         view.addSubview(segmentedControl)
+        setupConstraints()
         
-
+        
     }
     
     func setupConstraints() {
@@ -39,11 +70,31 @@ class MainViewController: UIViewController {
             segmentedControl.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
+    @objc func segmentedControlChanged(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0 :
+            //photo
+            print("0")
+            vm.chosenCollection = .photo
+            videoCollectionView.isHidden = true
+            photoCollectionView.isHidden = false
+        case 1 :
+            //video
+            print("1")
+            vm.chosenCollection = .video
+            videoCollectionView.isHidden = false
+            photoCollectionView.isHidden = true
+        default:
+            print("default")
+            vm.chosenCollection = .photo
+        }
+    }
     
     func setupNavigationControls() {
         navigationItem.title = "MobileUp Gallery"
         let btnLogout = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(btnLogoutTapped))
         navigationItem.rightBarButtonItem = btnLogout
+        navigationItem.hidesBackButton = true
     }
     
     @objc func btnLogoutTapped() {
@@ -54,6 +105,6 @@ class MainViewController: UIViewController {
         } catch {
             print(error)
         }
-
+        
     }
 }
