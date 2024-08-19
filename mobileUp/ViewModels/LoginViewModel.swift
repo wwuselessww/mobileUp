@@ -7,7 +7,9 @@
 
 import Foundation
 
-class LoginViewModel {
+class LoginViewModel: ObservableObject {
+    @Published var isLoginIn: Bool = false
+    @Published var isOnline: Bool = false
     func checkToken() async -> Bool{
         do {
             if let token = try KeychainManager.fetch(service: KeychainCreds.service, account: KeychainCreds.account) {
@@ -41,4 +43,9 @@ class LoginViewModel {
         }
         return false
     }
+    
+    func checkInternetConnection() {
+        
+    }
+    
 }

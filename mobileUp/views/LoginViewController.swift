@@ -12,8 +12,14 @@ class LoginViewController: UIViewController, VKLoginDelegate {
     
     lazy var vkLoginWebView = VKLoginWebView()
     lazy var mainVC = MainViewController()
-    
     var vm = LoginViewModel()
+    
+    let alert: UIAlertController = {
+        let a = UIAlertController(title: "Ошибка", message: "Нет подключения к интернету", preferredStyle: .alert)
+        a.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return a
+    }()
+    
     var lblTitle: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +30,7 @@ class LoginViewController: UIViewController, VKLoginDelegate {
         lbl.textColor = AppColors.lblColor
         return lbl
     }()
-    var isLoginIn: Bool = false
+    
     var btnLogin : UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -37,9 +43,10 @@ class LoginViewController: UIViewController, VKLoginDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkInternet()
         Task {
-            isLoginIn = await vm.checkToken()
-            checkIfLogin(loginState: isLoginIn)
+            vm.isLoginIn = await vm.checkToken()
+            checkIfLogin(loginState: vm.isLoginIn)
         }
         setupView()
         setupConstraints()
@@ -98,6 +105,17 @@ class LoginViewController: UIViewController, VKLoginDelegate {
     func checkIfLogin(loginState: Bool) {
         if loginState {
             navigationController?.pushViewController(mainVC, animated: true)
+        }
+    }
+    
+    func diselectedLogin() {
+        alert.message = "Для продолжения работы требуется зарегистрироваться"
+        self.present(alert, animated: true)
+    }
+    
+    func checkInternet() {
+        if !NetworkMonitor.shared.isConnected {
+            self.present(alert, animated: true)
         }
     }
     

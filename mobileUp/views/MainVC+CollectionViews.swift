@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     
@@ -22,7 +22,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
-        photoCollectionView.prefetchDataSource = self
         photoCollectionView.backgroundColor = .clear
         photoCollectionView.layer.zPosition = 0
         setPhotoLayout()
@@ -30,7 +29,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         videoCollectionView.isHidden = true
         videoCollectionView.delegate = self
         videoCollectionView.dataSource = self
-        videoCollectionView.prefetchDataSource = self
         videoCollectionView.backgroundColor = .clear
         videoCollectionView.layer.zPosition = 1
         setVideoLayout()
@@ -64,8 +62,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == photoCollectionView{
             
             guard let cell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {fatalError("no cells")}
-            
-            cell.contentView.backgroundColor = .orange
             Task {
                 cell.backgroundImage.image = await self.vm.getPhoto(urlString: Array(self.vm.photoArr.values)[indexPath.item])
             }
@@ -81,14 +77,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        for i in indexPaths {
-//            Task {
-//                await vm.cachedImages.setObject( vm.getPhoto(urlString: vm.photoArr[i.row]), forKey: vm.photoArr[i.row] as NSString)
-//
-//            }
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == photoCollectionView {
