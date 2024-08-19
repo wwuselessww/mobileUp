@@ -65,8 +65,6 @@ class VKLoginWebView: UIViewController, WKNavigationDelegate {
         } catch {
             print(error)
         }
-//        self.dismiss(animated: true)
-//        navigationController?.pushViewController(MainViewController(), animated: true)
         vkDelegate?.didDismiss()
         dismiss(animated: true)
         decisionHandler(.cancel)

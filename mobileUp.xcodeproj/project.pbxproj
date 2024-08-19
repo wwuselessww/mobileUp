@@ -19,6 +19,7 @@
 		A2287C462C6BEC0C00DC9760 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */; };
 		A2287C492C6BEEC400DC9760 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287C482C6BEEC400DC9760 /* InfoModel.swift */; };
 		A27006FC2C7383F60077DBE4 /* VideoModelToPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27006FB2C7383F60077DBE4 /* VideoModelToPass.swift */; };
+		A27006FE2C738E990077DBE4 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27006FD2C738E990077DBE4 /* CGFloat+Extensions.swift */; };
 		A271688F2C725E700066D07F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271688E2C725E700066D07F /* VideoCell.swift */; };
 		A27168932C726D8C0066D07F /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27168922C726D8C0066D07F /* VideoModel.swift */; };
 		A27168952C728BF90066D07F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27168942C728BF90066D07F /* VideoViewController.swift */; };
@@ -48,6 +49,7 @@
 		A2287C452C6BEC0C00DC9760 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A2287C482C6BEEC400DC9760 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		A27006FB2C7383F60077DBE4 /* VideoModelToPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModelToPass.swift; sourceTree = "<group>"; };
+		A27006FD2C738E990077DBE4 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		A271688E2C725E700066D07F /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		A27168922C726D8C0066D07F /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		A27168942C728BF90066D07F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				A2287C342C6B9EFD00DC9760 /* UIColor+Extensions.swift */,
+				A27006FD2C738E990077DBE4 /* CGFloat+Extensions.swift */,
 				A2287C372C6B9FAE00DC9760 /* Constants.swift */,
 				A2E933C22C7103DF00AD6F6E /* UIImageView+Extensions.swift */,
 				A2FBC9E62C73687D00E361DF /* String+Extensions.swift */,
@@ -256,6 +259,7 @@
 				A2287C1F2C6B930100DC9760 /* AppDelegate.swift in Sources */,
 				A2E933C02C70F34700AD6F6E /* MainVC+Bindings.swift in Sources */,
 				A27168952C728BF90066D07F /* VideoViewController.swift in Sources */,
+				A27006FE2C738E990077DBE4 /* CGFloat+Extensions.swift in Sources */,
 				A2287C212C6B930100DC9760 /* SceneDelegate.swift in Sources */,
 				A2BF23932C6E8C4800D2270F /* MainVC+CollectionViews.swift in Sources */,
 				A2E933C62C710C3900AD6F6E /* PhotoCell.swift in Sources */,
@@ -327,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -384,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

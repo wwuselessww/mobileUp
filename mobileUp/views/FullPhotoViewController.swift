@@ -41,7 +41,6 @@ class FullPhotoViewController: UIViewController {
         print("btnShareTapped")
         let activityVc = UIActivityViewController(activityItems: [imageView.image ?? .placeholder], applicationActivities: nil)
         activityVc.popoverPresentationController?.sourceView = self.view
-        
         self.present(activityVc, animated: true)
     }
     

@@ -18,7 +18,8 @@ class LoginViewController: UIViewController, VKLoginDelegate {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Mobile Up Gallery"
-        lbl.font = .systemFont(ofSize: 44, weight: UIFont.Weight(400))
+//        lbl.font = .systemFont(ofSize: 44, weight: UIFont.Weight(400))
+        lbl.font = .systemFont(ofSize: CGFloat().fontSizeForDevice(), weight: UIFont.Weight(400))
         lbl.numberOfLines = 2
         lbl.textColor = AppColors.lblColor
         return lbl
@@ -60,7 +61,7 @@ class LoginViewController: UIViewController, VKLoginDelegate {
             lblTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -124),
             lblTitle.heightAnchor.constraint(equalToConstant: 106),
             
-            btnLogin.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 8),
+            btnLogin.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             btnLogin.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             btnLogin.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             btnLogin.heightAnchor.constraint(equalToConstant: 52)
