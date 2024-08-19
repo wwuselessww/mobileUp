@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FullImageViewController: UIViewController {
+class FullPhotoViewController: UIViewController {
     var imageView: UIImageView = {
         let i = UIImageView()
         i.translatesAutoresizingMaskIntoConstraints = false
@@ -16,13 +16,10 @@ class FullImageViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(btnShareTapped))
         setupView()
         setupConstraints()
         view.backgroundColor = AppColors.background
-        
-    }
-    
-    func setupNavigationControlls() {
         
     }
     
@@ -37,6 +34,14 @@ class FullImageViewController: UIViewController {
             imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+    
+    @objc func btnShareTapped() {
+        print("btnShareTapped")
+        let activityVc = UIActivityViewController(activityItems: [imageView.image ?? .placeholder], applicationActivities: nil)
+        activityVc.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityVc, animated: true)
     }
     
 }

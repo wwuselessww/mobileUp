@@ -93,7 +93,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == photoCollectionView {
-            var fullPhotoVC = FullImageViewController()
+            var fullPhotoVC = FullPhotoViewController()
             Task {
                 fullPhotoVC.imageView.image = await vm.getPhoto(urlString: Array(vm.photoArr.values)[indexPath.item])
             }
