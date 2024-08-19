@@ -10,7 +10,7 @@ import UIKit
 class MainViewModel: ObservableObject {
     @Published var albumsArr: [String] = []
     @Published var photoArr: [String: String] = [:]
-    @Published var videoArr: [String : String] = [:]
+    @Published var videoArr: [VideoModelToPass] = []
     @Published var photoImagesArr: [UIImage] = []
     @Published var chosenCollection: ChosenCollection = .photo
     @Published var token = ""
@@ -127,7 +127,8 @@ class MainViewModel: ObservableObject {
         }
     
     func getVideos() async {
-        var tempArr: [String:String] = [:]
+//        var tempArr: [String:String] = [:]
+        var tempArr: [VideoModelToPass] = []
         do {
             var urlComponents = URLComponents(string: "https://api.vk.com/method/video.get")
             
@@ -144,7 +145,8 @@ class MainViewModel: ObservableObject {
             for item in res.response.items {
                 
 //                tempArr.append(item.image.last?.url ?? "")
-                tempArr[item.title] = item.image.last?.url ?? ""
+//                tempArr[item.title] = item.image.last?.url ?? ""
+                tempArr.append(VideoModelToPass(title: item.title, firstFrameURL: item.image.last?.url ?? "" , playerURL: item.player))
             }
             videoArr = tempArr
             print(videoArr)

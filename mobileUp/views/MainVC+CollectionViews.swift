@@ -75,8 +75,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = videoCollectionView.dequeueReusableCell(withReuseIdentifier: VideoCell.identifier, for: indexPath) as? VideoCell else {fatalError("no cells")}
             cell.contentView.backgroundColor = .green
             Task {
-                cell.backgroundImageView.image = await self.vm.getPhoto(urlString: Array(vm.videoArr.values)[indexPath.item])
-                cell.lblTitle.text = Array(vm.videoArr.keys)[indexPath.item]
+//                cell.backgroundImageView.image = await self.vm.getPhoto(urlString: Array(vm.videoArr.values)[indexPath.item])
+                cell.backgroundImageView.image = await self.vm.getPhoto(urlString: vm.videoArr[indexPath.item].firstFrameURL)
+//                cell.lblTitle.text = Array(vm.videoArr.keys)[indexPath.item]
+                cell.lblTitle.text = vm.videoArr[indexPath.item].title
+
             }
             return cell
         }
@@ -106,9 +109,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //                fullVideoVC.imageView.image = await vm.getPhoto(urlString: vm.photoArr[indexPath.item])
             }
             
-            fullVideoVC.title = Array(vm.videoArr.keys)[indexPath.item]
+//            fullVideoVC.title = Array(vm.videoArr.keys)[indexPath.item]
+            fullVideoVC.title = vm.videoArr[indexPath.item].title
 //            fullVideoVC.linkToVideoPlayer = "https://vk.com//video_ext.php?oid=-128666765&id=456239094&hash=6e5a7784c8852dfe&__ref=vk.api&api_hash=17240042454c776fa1516cebe1f1_GUYDKMRVGAZTINI"
-            print(Array(vm.videoArr.keys)[indexPath.item])
+//            print(Array(vm.videoArr.keys)[indexPath.item])
+            fullVideoVC.linkToVideoPlayer = vm.videoArr[indexPath.item].playerURL
             navigationItem.backButtonDisplayMode = .minimal
             navigationController?.pushViewController(fullVideoVC, animated: true)
             
